@@ -2,6 +2,7 @@ import * as React from "react";
 import Container from "@mui/material/Container";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
+import ToggleGroup from "./ToggleGroup";
 
 const FirstLayer = () => {
   return (
@@ -24,6 +25,7 @@ const FirstLayer = () => {
         <Typography component="h1" variant="h4" align="center">
           Question
         </Typography>
+        <ToggleGroup />
       </Paper>
     </Container>
   );
