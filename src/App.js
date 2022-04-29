@@ -1,5 +1,7 @@
+import FirstLayer from "./Components/FirstLayer";
+
 const App = () => {
-  return <div>Hi</div>;
+  return <FirstLayer />;
 };
 
 export default App;
