@@ -5,12 +5,17 @@ import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Typography from "@mui/material/Typography";
 
-const CustomToggleButton = () => {
+const CustomToggleButton = (props) => {
   const matches = useMediaQuery("(min-width:600px)");
-  const [alignment, setAlignment] = React.useState("left");
-
-  const handleAlignment = (event, newAlignment) => {
-    setAlignment(newAlignment);
+  const [option, setOption] = React.useState("option1");
+  const [fontColorOption, _] = React.useState({
+    selectedOption: "#9F938B",
+    nonSelectedOption: "#FFFFFF",
+  });
+  const handleOption = (_, newOption) => {
+    if (newOption !== null) {
+      setOption(newOption);
+    }
   };
   return (
     <Box
@@ -21,9 +26,9 @@ const CustomToggleButton = () => {
       }}
     >
       <ToggleButtonGroup
-        value={alignment}
+        value={option}
         exclusive
-        onChange={handleAlignment}
+        onChange={handleOption}
         orientation={`${matches ? `horizontal` : `vertical`}`}
         sx={{
           display: "flex",
@@ -33,56 +38,40 @@ const CustomToggleButton = () => {
           filter: "drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))",
         }}
       >
-        <ToggleButton
-          value="left"
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-            padding: "21px 157px",
-            background: "#F8CAA3",
-            borderRadius: "100px",
-          }}
-        >
-          <Typography
-            sx={{
-              fontFamily: "Mulish",
-              fontSize: "24px",
-              fontStyle: "normal",
-              fontWeight: 700,
-              fontColor: "#9F938B",
-              textTransform: "none",
-            }}
-          >
-            left
-          </Typography>
-        </ToggleButton>
-        <ToggleButton
-          value="center"
-          sx={{
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "center",
-            alignItems: "center",
-            padding: "21px 157px",
-            background: "#F8CAA3",
-            borderRadius: "100px",
-          }}
-        >
-          <Typography
-            sx={{
-              fontFamily: "Mulish",
-              fontSize: "24px",
-              fontStyle: "normal",
-              fontWeight: 700,
-              fontColor: "#9F938B",
-              textTransform: "none",
-            }}
-          >
-            right
-          </Typography>
-        </ToggleButton>
+        {Object.keys(props.options).map((iterOption, idx) => {
+          const fontColor =
+            iterOption !== option
+              ? `${fontColorOption.selectedOption}`
+              : `${fontColorOption.nonSelectedOption}`;
+          return (
+            <ToggleButton
+              key={idx}
+              value={iterOption}
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
+                padding: "21px 157px",
+                background: "#F8CAA3",
+                borderRadius: "100px",
+              }}
+            >
+              <Typography
+                sx={{
+                  fontFamily: "Mulish",
+                  fontSize: "24px",
+                  fontStyle: "normal",
+                  fontWeight: 700,
+                  color: fontColor,
+                  textTransform: "none",
+                }}
+              >
+                {props.options[iterOption]}
+              </Typography>
+            </ToggleButton>
+          );
+        })}
       </ToggleButtonGroup>
     </Box>
   );
