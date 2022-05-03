@@ -5,7 +5,7 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import CustomToggleButton from "./CustomToggleButton";
 
-const FirstLayer = () => {
+const QAndAWidget = () => {
   return (
     <Container
       sx={{
@@ -30,4 +30,4 @@ const FirstLayer = () => {
   );
 };
 
-export default FirstLayer;
+export default QAndAWidget;
