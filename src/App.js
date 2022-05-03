@@ -1,7 +1,7 @@
-import FirstLayer from "./Components/FirstLayer";
+import QAndAWidget from "./Components/QAndAWidget";
 
 const App = () => {
-  return <FirstLayer />;
+  return <QAndAWidget />;
 };
 
 export default App;
