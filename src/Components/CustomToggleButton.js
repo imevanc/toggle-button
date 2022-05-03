@@ -7,10 +7,15 @@ import Typography from "@mui/material/Typography";
 
 const CustomToggleButton = (props) => {
   const matches = useMediaQuery("(min-width:600px)");
-  const [alignment, setAlignment] = React.useState("option1");
-
-  const handleAlignment = (event, newAlignment) => {
-    setAlignment(newAlignment);
+  const [option, setOption] = React.useState("option1");
+  const [fontColorOption, _] = React.useState({
+    selectedOption: "#9F938B",
+    nonSelectedOption: "#FFFFFF",
+  });
+  const handleOption = (_, newOption) => {
+    if (newOption !== null) {
+      setOption(newOption);
+    }
   };
   return (
     <Box
@@ -21,9 +26,9 @@ const CustomToggleButton = (props) => {
       }}
     >
       <ToggleButtonGroup
-        value={alignment}
+        value={option}
         exclusive
-        onChange={handleAlignment}
+        onChange={handleOption}
         orientation={`${matches ? `horizontal` : `vertical`}`}
         sx={{
           display: "flex",
@@ -33,11 +38,15 @@ const CustomToggleButton = (props) => {
           filter: "drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))",
         }}
       >
-        {Object.keys(props.options).map((option, idx) => {
+        {Object.keys(props.options).map((iterOption, idx) => {
+          const fontColor =
+            iterOption !== option
+              ? `${fontColorOption.selectedOption}`
+              : `${fontColorOption.nonSelectedOption}`;
           return (
             <ToggleButton
               key={idx}
-              value={option}
+              value={iterOption}
               sx={{
                 display: "flex",
                 flexDirection: "column",
@@ -54,65 +63,15 @@ const CustomToggleButton = (props) => {
                   fontSize: "24px",
                   fontStyle: "normal",
                   fontWeight: 700,
-                  color: "#9F938B",
+                  color: fontColor,
                   textTransform: "none",
                 }}
               >
-                {props.options[option]}
+                {props.options[iterOption]}
               </Typography>
             </ToggleButton>
           );
         })}
-        {/* <ToggleButton
-          value="option1"
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-            padding: "21px 157px",
-            background: "#F8CAA3",
-            borderRadius: "100px",
-          }}
-        >
-          <Typography
-            sx={{
-              fontFamily: "Mulish",
-              fontSize: "24px",
-              fontStyle: "normal",
-              fontWeight: 700,
-              color: "#9F938B",
-              textTransform: "none",
-            }}
-          >
-            option1
-          </Typography>
-        </ToggleButton>
-        <ToggleButton
-          value="option2"
-          sx={{
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "center",
-            alignItems: "center",
-            padding: "21px 157px",
-            background: "#F8CAA3",
-            borderRadius: "100px",
-          }}
-        >
-          <Typography
-            sx={{
-              fontFamily: "Mulish",
-              fontSize: "24px",
-              fontStyle: "normal",
-              fontWeight: 700,
-              color: "#9F938B",
-              textTransform: "none",
-            }}
-          >
-            option2
-          </Typography>
-        </ToggleButton> */}
       </ToggleButtonGroup>
     </Box>
   );

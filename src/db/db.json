@@ -12,10 +12,7 @@
     },
     {
       "question": "Which are the best sports people & teams?",
-      "answers": [
-        { "option1": "Liverpool", "option2": "Chelsea", "option3": "Man Utd" },
-        { "option1": "Serena Williams", "option2": "Naomi Osaka" }
-      ],
+      "answers": [{ "option1": "Serena Williams", "option2": "Naomi Osaka" }],
       "solutions": ["option3", "option1"]
     }
   ]
