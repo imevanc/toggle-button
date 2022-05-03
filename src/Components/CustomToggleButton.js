@@ -5,9 +5,9 @@ import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Typography from "@mui/material/Typography";
 
-const CustomToggleButton = () => {
+const CustomToggleButton = (props) => {
   const matches = useMediaQuery("(min-width:600px)");
-  const [alignment, setAlignment] = React.useState("left");
+  const [alignment, setAlignment] = React.useState("option1");
 
   const handleAlignment = (event, newAlignment) => {
     setAlignment(newAlignment);
@@ -33,8 +33,38 @@ const CustomToggleButton = () => {
           filter: "drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))",
         }}
       >
-        <ToggleButton
-          value="left"
+        {Object.keys(props.options).map((option, idx) => {
+          return (
+            <ToggleButton
+              key={idx}
+              value={option}
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
+                padding: "21px 157px",
+                background: "#F8CAA3",
+                borderRadius: "100px",
+              }}
+            >
+              <Typography
+                sx={{
+                  fontFamily: "Mulish",
+                  fontSize: "24px",
+                  fontStyle: "normal",
+                  fontWeight: 700,
+                  color: "#9F938B",
+                  textTransform: "none",
+                }}
+              >
+                {props.options[option]}
+              </Typography>
+            </ToggleButton>
+          );
+        })}
+        {/* <ToggleButton
+          value="option1"
           sx={{
             display: "flex",
             flexDirection: "column",
@@ -51,15 +81,15 @@ const CustomToggleButton = () => {
               fontSize: "24px",
               fontStyle: "normal",
               fontWeight: 700,
-              fontColor: "#9F938B",
+              color: "#9F938B",
               textTransform: "none",
             }}
           >
-            left
+            option1
           </Typography>
         </ToggleButton>
         <ToggleButton
-          value="center"
+          value="option2"
           sx={{
             display: "flex",
             flexDirection: "row",
@@ -76,13 +106,13 @@ const CustomToggleButton = () => {
               fontSize: "24px",
               fontStyle: "normal",
               fontWeight: 700,
-              fontColor: "#9F938B",
+              color: "#9F938B",
               textTransform: "none",
             }}
           >
-            right
+            option2
           </Typography>
-        </ToggleButton>
+        </ToggleButton> */}
       </ToggleButtonGroup>
     </Box>
   );

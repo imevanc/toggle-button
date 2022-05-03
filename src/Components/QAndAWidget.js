@@ -5,7 +5,7 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import CustomToggleButton from "./CustomToggleButton";
 
-const QAndAWidget = () => {
+const QAndAWidget = (props) => {
   return (
     <Container
       sx={{
@@ -17,14 +17,24 @@ const QAndAWidget = () => {
         maxHeight: "720px",
       }}
     >
-      <Typography component="h1" variant="h4" align="center">
-        Question
+      <Typography
+        paddingTop="20px"
+        align="center"
+        sx={{
+          fontFamily: "Mulish",
+          fontSize: "24px",
+          fontStyle: "normal",
+          fontWeight: 700,
+          color: "#FFFFFF",
+          textTransform: "none",
+        }}
+      >
+        {props.questionsAndAnswers.question}
       </Typography>
       <Box sx={{ paddingBottom: "20px" }}>
-        <CustomToggleButton />
-        <CustomToggleButton />
-        <CustomToggleButton />
-        <CustomToggleButton />
+        {props.questionsAndAnswers.answers.map((options, idx) => (
+          <CustomToggleButton key={idx} options={options} />
+        ))}
       </Box>
     </Container>
   );
