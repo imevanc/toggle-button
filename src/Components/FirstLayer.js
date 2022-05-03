@@ -1,7 +1,9 @@
 import * as React from "react";
 import Container from "@mui/material/Container";
+import Box from "@mui/material/Box";
+
 import Typography from "@mui/material/Typography";
-import ToggleGroup from "./ToggleGroup";
+import CustomToggleButton from "./CustomToggleButton";
 
 const FirstLayer = () => {
   return (
@@ -18,10 +20,12 @@ const FirstLayer = () => {
       <Typography component="h1" variant="h4" align="center">
         Question
       </Typography>
-      <ToggleGroup />
-      <ToggleGroup />
-      <ToggleGroup />
-      <ToggleGroup />
+      <Box sx={{ paddingBottom: "20px" }}>
+        <CustomToggleButton />
+        <CustomToggleButton />
+        <CustomToggleButton />
+        <CustomToggleButton />
+      </Box>
     </Container>
   );
 };

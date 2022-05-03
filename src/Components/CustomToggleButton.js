@@ -5,7 +5,7 @@ import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Typography from "@mui/material/Typography";
 
-const ToggleGroup = () => {
+const CustomToggleButton = () => {
   const matches = useMediaQuery("(min-width:600px)");
   const [alignment, setAlignment] = React.useState("left");
 
@@ -88,4 +88,4 @@ const ToggleGroup = () => {
   );
 };
 
-export default ToggleGroup;
+export default CustomToggleButton;
