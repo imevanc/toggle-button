@@ -84,6 +84,7 @@ const CustomToggleButton = (props) => {
           flexGrow: 1,
           display: { xs: "flex", md: "none" },
           justifyContent: "center",
+          minWidth: "288px",
         }}
       >
         <ToggleButtonGroup
@@ -97,6 +98,7 @@ const CustomToggleButton = (props) => {
             border: "2px solid #F9D29F",
             borderRadius: "100px",
             filter: "drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))",
+            minWidth: "288px",
           }}
         >
           {Object.keys(props.options).map((iterOption, idx) => {
@@ -116,7 +118,8 @@ const CustomToggleButton = (props) => {
                   padding: "21px 157px",
                   background: "#F8CAA3",
                   borderRadius: "100px",
-                  maxWidth: "100px",
+                  maxWidth: "500px",
+                  minWidth: "288px",
                 }}
               >
                 <Typography
