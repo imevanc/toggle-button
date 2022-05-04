@@ -41,6 +41,20 @@ const QAndAWidget = (props) => {
         {props.questionsAndAnswers.answers.map((options, idx) => (
           <CustomToggleButton key={idx} options={options} />
         ))}
+        <Typography
+          paddingTop="20px"
+          align="center"
+          sx={{
+            fontFamily: "Mulish",
+            fontSize: "24px",
+            fontStyle: "normal",
+            fontWeight: 700,
+            color: "#FFFFFF",
+            textTransform: "none",
+          }}
+        >
+          The answer is incorrect.
+        </Typography>
       </Box>
     </Container>
   );

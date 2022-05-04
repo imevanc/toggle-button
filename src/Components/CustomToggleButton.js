@@ -8,6 +8,7 @@ import Typography from "@mui/material/Typography";
 const CustomToggleButton = (props) => {
   const matches = useMediaQuery("(min-width:900px)");
   const [option, setOption] = React.useState("option1");
+
   const [fontColorOption, _] = React.useState({
     selectedOption: "#9F938B",
     nonSelectedOption: "#FFFFFF",
