@@ -13,28 +13,48 @@ const QAndAWidget = (props) => {
         flexDirection: "column",
         justifyContent: "center",
         background: "linear-gradient(180deg, #F6B868 0%, #EE6B2D 100%)",
-        maxWidth: "1280px",
-        maxHeight: "720px",
       }}
     >
-      <Typography
-        paddingTop="20px"
-        align="center"
+      <Box
         sx={{
-          fontFamily: "Mulish",
-          fontSize: "24px",
-          fontStyle: "normal",
-          fontWeight: 700,
-          color: "#FFFFFF",
-          textTransform: "none",
+          paddingBottom: "20px",
+          flexGrow: 1,
+          flexDirection: "column",
+          display: { xs: "flex", md: "flex" },
         }}
       >
-        {props.questionsAndAnswers.question}
-      </Typography>
-      <Box sx={{ paddingBottom: "20px" }}>
+        <Typography
+          paddingTop="20px"
+          align="center"
+          sx={{
+            fontFamily: "Mulish",
+            fontSize: "24px",
+            fontStyle: "normal",
+            fontWeight: 700,
+            color: "#FFFFFF",
+            textTransform: "none",
+          }}
+        >
+          {props.questionsAndAnswers.question}
+        </Typography>
+
         {props.questionsAndAnswers.answers.map((options, idx) => (
           <CustomToggleButton key={idx} options={options} />
         ))}
+        <Typography
+          paddingTop="20px"
+          align="center"
+          sx={{
+            fontFamily: "Mulish",
+            fontSize: "24px",
+            fontStyle: "normal",
+            fontWeight: 700,
+            color: "#FFFFFF",
+            textTransform: "none",
+          }}
+        >
+          The answer is incorrect.
+        </Typography>
       </Box>
     </Container>
   );
