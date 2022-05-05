@@ -8,7 +8,6 @@ import { ThemeContext } from "../Context/ThemeContext";
 
 const CustomToggleButton = (props) => {
   const matches = useMediaQuery("(min-width:900px)");
-  const ourTheme = React.useContext(ThemeContext);
   const [option, setOption] = React.useState("option2");
 
   const handleOption = (_, newOption) => {
@@ -48,7 +47,7 @@ const CustomToggleButton = (props) => {
           sx={{
             display: "flex",
             justifyContent: "center",
-            border: "2px solid #F9D29F",
+            border: `${props.widgetColor.border}`,
             borderRadius: "100px",
             filter: "drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))",
           }}
@@ -70,10 +69,9 @@ const CustomToggleButton = (props) => {
                     border: "1px solid lightgrey !important",
                   },
                   "&.Mui-selected, &.Mui-selected:hover": {
-                    color: "#9F938B",
-                    backgroundColor: "#F8CAA3",
+                    color: `${props.widgetColor.color}`,
+                    backgroundColor: `${props.widgetColor.background}`,
                   },
-
                   minWidth: "500px",
                 }}
               >
@@ -110,7 +108,7 @@ const CustomToggleButton = (props) => {
           sx={{
             display: "flex",
             justifyContent: "center",
-            border: "2px solid #F9D29F",
+            border: `${props.widgetColor.border}`,
             borderRadius: "24px",
             filter: "drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))",
             minWidth: "200px",
@@ -133,8 +131,8 @@ const CustomToggleButton = (props) => {
                     border: "1px solid lightgrey !important",
                   },
                   "&.Mui-selected, &.Mui-selected:hover": {
-                    color: "#9F938B",
-                    backgroundColor: "#F8CAA3",
+                    color: `${props.widgetColor.color}`,
+                    background: `${props.widgetColor.background}`,
                   },
                   maxWidth: "500px",
                   minWidth: "200px",

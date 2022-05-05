@@ -22,7 +22,7 @@ const TrafficLightTheme = () => {
     red: {
       main: "linear-gradient(180deg, #F1B496 0%, #EA806A 100%)",
       border: "2px solid #FBFBFB",
-      color: "#E47958",
+      color: "#E47958;",
       background: "#F2CBBD",
     },
   });

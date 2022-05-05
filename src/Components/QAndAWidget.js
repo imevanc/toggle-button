@@ -7,9 +7,8 @@ import CustomToggleButton from "./CustomToggleButton";
 
 const QAndAWidget = (props) => {
   const ourTheme = React.useContext(ThemeContext);
-  const [widgetColor, setWidgetColor] = React.useState(
-    "linear-gradient(180deg, #76E0C2 0%, #59CADA 100%)"
-  );
+  console.log(ourTheme);
+  const [widgetColor, setWidgetColor] = React.useState(ourTheme.ourTheme.amber);
   const [solutionMessage, setSolutionMessage] = React.useState("");
   // TODO: work on the code below
   // const [userSolutions, setUserSolutions] = React.useState(
@@ -30,9 +29,7 @@ const QAndAWidget = (props) => {
   const correctSolutions = props.questionsAndAnswers.solutions.filter(
     (option, idx) => option === userSolutions[idx]
   ).length;
-  console.log(correctSolutions);
-  console.log(props.questionsAndAnswers.solutions.length);
-  console.log("----------------------------------------");
+
   if (correctSolutions === props.questionsAndAnswers.solutions.length) {
     // console.log("success");
     // setWidgetColor(ourTheme.ourTheme.green.main);
@@ -57,7 +54,7 @@ const QAndAWidget = (props) => {
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
-        background: widgetColor,
+        background: `${widgetColor.background}`,
       }}
     >
       <Box
@@ -90,6 +87,7 @@ const QAndAWidget = (props) => {
             idx={idx}
             userSolutions={userSolutions}
             setUserSolutions={setUserSolutions}
+            widgetColor={widgetColor}
           />
         ))}
         <Typography
