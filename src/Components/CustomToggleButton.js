@@ -2,13 +2,12 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
-import useMediaQuery from "@mui/material/useMediaQuery";
 import Typography from "@mui/material/Typography";
-import { ThemeContext } from "../Context/ThemeContext";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 const CustomToggleButton = (props) => {
   const matches = useMediaQuery("(min-width:900px)");
-  const [option, setOption] = React.useState("option2");
+  const [option, setOption] = React.useState(props.userSolutions[props.idx]);
 
   const handleOption = (_, newOption) => {
     if (newOption !== null) {
@@ -57,13 +56,14 @@ const CustomToggleButton = (props) => {
               <ToggleButton
                 key={idx}
                 value={iterOption}
+                disabled={props.lock}
                 sx={{
                   display: "flex",
                   flexDirection: "column",
                   justifyContent: "center",
                   alignItems: "center",
                   padding: "21px 157px",
-                  color: "#FFFFFF",
+                  color: `${props.widgetColor.nonSelectedColor}`,
                   "&.MuiToggleButtonGroup-grouped": {
                     borderRadius: "100px !important",
                     border: "1px solid lightgrey !important",
@@ -117,6 +117,7 @@ const CustomToggleButton = (props) => {
           {Object.keys(props.options).map((iterOption, idx) => {
             return (
               <ToggleButton
+                disabled={props.lock}
                 key={idx}
                 value={iterOption}
                 sx={{
@@ -125,7 +126,7 @@ const CustomToggleButton = (props) => {
                   justifyContent: "center",
                   alignItems: "center",
                   padding: "21px 157px",
-                  color: "#FFFFFF",
+                  color: `${props.widgetColor.nonSelectedColor}`,
                   "&.MuiToggleButtonGroup-grouped": {
                     borderRadius: "24px !important",
                     border: "1px solid lightgrey !important",

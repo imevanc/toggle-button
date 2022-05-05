@@ -7,48 +7,43 @@ import CustomToggleButton from "./CustomToggleButton";
 
 const QAndAWidget = (props) => {
   const ourTheme = React.useContext(ThemeContext);
-  const [widgetColor, setWidgetColor] = React.useState(ourTheme.ourTheme.amber);
-  console.log(widgetColor);
+  const [widgetColor, setWidgetColor] = React.useState(
+    ourTheme.ourTheme.loading
+  );
+  const [solutionMessage, setSolutionMessage] = React.useState("Loading...");
+  const [lock, setLock] = React.useState(Boolean(false));
 
-  const [solutionMessage, setSolutionMessage] = React.useState("");
-  // TODO: work on the code below
-  // const [userSolutions, setUserSolutions] = React.useState(
-  //   props.questionsAndAnswers.solutions.map((option) => {
-  //     if (option === "option1") {
-  //       return "option2";
-  //     } else {
-  //       return "option1";
-  //     }
-  //   })
-  // );
-  const [userSolutions, setUserSolutions] = React.useState([
-    "option2",
-    "option2",
-    "option2",
-    "option2",
-  ]);
-  const correctSolutions = props.questionsAndAnswers.solutions.filter(
-    (option, idx) => option === userSolutions[idx]
-  ).length;
+  const [userSolutions, setUserSolutions] = React.useState(
+    props.questionsAndAnswers.solutions.map((option) => {
+      if (option === "option1") {
+        return "option2";
+      } else {
+        return "option1";
+      }
+    })
+  );
 
-  if (correctSolutions === props.questionsAndAnswers.solutions.length) {
-    // console.log("success");
-    // setWidgetColor(ourTheme.ourTheme.green.main);
-    // setSolutionMessage("The answer is correct!");
-  } //else if (
-  //   correctSolutions >=
-  //   props.questionsAndAnswers.solutions.length * 0.5
-  // ) {
-  //   setWidgetColor(() => {
-  //     setWidgetColor(ourTheme.ourTheme.amber.main);
-  //   });
-  //   // setSolutionMessage("The answer is incorrect!");
-  // } else {
-  //   setWidgetColor(() => {
-  //     setWidgetColor(ourTheme.ourTheme.red.main);
-  //   });
-  //   // setSolutionMessage("The answer is incorrect!");
-  // }
+  React.useEffect(() => {
+    const correctSolutions = props.questionsAndAnswers.solutions.filter(
+      (option, idx) => option === userSolutions[idx]
+    ).length;
+
+    if (correctSolutions === props.questionsAndAnswers.solutions.length) {
+      setWidgetColor(ourTheme.ourTheme.green);
+      setSolutionMessage("The answer is correct!");
+      setLock(Boolean(true));
+    } else if (
+      correctSolutions >=
+      props.questionsAndAnswers.solutions.length * 0.5
+    ) {
+      setWidgetColor(ourTheme.ourTheme.amber);
+      setSolutionMessage("The answer is incorrect!");
+    } else {
+      setWidgetColor(ourTheme.ourTheme.red);
+      setSolutionMessage("The answer is incorrect!");
+    }
+  }, [userSolutions]);
+
   return (
     <Container
       sx={{
@@ -89,6 +84,7 @@ const QAndAWidget = (props) => {
             userSolutions={userSolutions}
             setUserSolutions={setUserSolutions}
             widgetColor={widgetColor}
+            lock={lock}
           />
         ))}
         <Typography
