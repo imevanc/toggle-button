@@ -7,8 +7,9 @@ import CustomToggleButton from "./CustomToggleButton";
 
 const QAndAWidget = (props) => {
   const ourTheme = React.useContext(ThemeContext);
-  console.log(ourTheme);
   const [widgetColor, setWidgetColor] = React.useState(ourTheme.ourTheme.amber);
+  console.log(widgetColor);
+
   const [solutionMessage, setSolutionMessage] = React.useState("");
   // TODO: work on the code below
   // const [userSolutions, setUserSolutions] = React.useState(
@@ -54,7 +55,7 @@ const QAndAWidget = (props) => {
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
-        background: `${widgetColor.background}`,
+        background: `${widgetColor.main}`,
       }}
     >
       <Box
