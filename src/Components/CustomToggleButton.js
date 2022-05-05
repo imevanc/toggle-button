@@ -4,11 +4,10 @@ import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Typography from "@mui/material/Typography";
-import { ThemeContext } from "../Context/ThemeContext";
 
 const CustomToggleButton = (props) => {
   const matches = useMediaQuery("(min-width:900px)");
-  const [option, setOption] = React.useState("option2");
+  const [option, setOption] = React.useState(props.userSolutions[props.idx]);
 
   const handleOption = (_, newOption) => {
     if (newOption !== null) {
