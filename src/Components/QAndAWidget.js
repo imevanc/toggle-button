@@ -7,10 +7,11 @@ import CustomToggleButton from "./CustomToggleButton";
 
 const QAndAWidget = (props) => {
   const ourTheme = React.useContext(ThemeContext);
-  const [widgetColor, setWidgetColor] = React.useState(ourTheme.ourTheme.amber);
-  const [solutionMessage, setSolutionMessage] = React.useState(
-    "The answer is incorrect"
+  const [widgetColor, setWidgetColor] = React.useState(
+    ourTheme.ourTheme.loading
   );
+  const [solutionMessage, setSolutionMessage] = React.useState("Loading...");
+  const [lock, setLock] = React.useState(Boolean(false));
 
   const [userSolutions, setUserSolutions] = React.useState(
     props.questionsAndAnswers.solutions.map((option) => {
@@ -30,6 +31,7 @@ const QAndAWidget = (props) => {
     if (correctSolutions === props.questionsAndAnswers.solutions.length) {
       setWidgetColor(ourTheme.ourTheme.green);
       setSolutionMessage("The answer is correct!");
+      setLock(Boolean(true));
     } else if (
       correctSolutions >=
       props.questionsAndAnswers.solutions.length * 0.5
@@ -82,6 +84,7 @@ const QAndAWidget = (props) => {
             userSolutions={userSolutions}
             setUserSolutions={setUserSolutions}
             widgetColor={widgetColor}
+            lock={lock}
           />
         ))}
         <Typography
