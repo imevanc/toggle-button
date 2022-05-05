@@ -7,17 +7,15 @@ import Typography from "@mui/material/Typography";
 
 const CustomToggleButton = (props) => {
   const matches = useMediaQuery("(min-width:900px)");
-  const [option, setOption] = React.useState("option1");
 
-  const [fontColorOption, _] = React.useState({
-    selectedOption: "#9F938B",
-    nonSelectedOption: "#FFFFFF",
-  });
+  const [option, setOption] = React.useState("option2");
+
   const handleOption = (_, newOption) => {
     if (newOption !== null) {
       setOption(newOption);
     }
   };
+
   return (
     <React.Fragment>
       <Box
@@ -43,10 +41,6 @@ const CustomToggleButton = (props) => {
           }}
         >
           {Object.keys(props.options).map((iterOption, idx) => {
-            const fontColor =
-              iterOption !== option
-                ? `${fontColorOption.selectedOption}`
-                : `${fontColorOption.nonSelectedOption}`;
             return (
               <ToggleButton
                 key={idx}
@@ -57,8 +51,16 @@ const CustomToggleButton = (props) => {
                   justifyContent: "center",
                   alignItems: "center",
                   padding: "21px 157px",
-                  background: "#F8CAA3",
-                  borderRadius: "100px",
+                  color: "#FFFFFF",
+                  "&.MuiToggleButtonGroup-grouped": {
+                    borderRadius: "100px !important",
+                    border: "1px solid lightgrey !important",
+                  },
+                  "&.Mui-selected, &.Mui-selected:hover": {
+                    color: "#9F938B",
+                    backgroundColor: "#F8CAA3",
+                  },
+
                   minWidth: "500px",
                 }}
               >
@@ -68,7 +70,6 @@ const CustomToggleButton = (props) => {
                     fontSize: "24px",
                     fontStyle: "normal",
                     fontWeight: 700,
-                    color: fontColor,
                     textTransform: "none",
                   }}
                 >
@@ -85,7 +86,7 @@ const CustomToggleButton = (props) => {
           flexGrow: 1,
           display: { xs: "flex", md: "none" },
           justifyContent: "center",
-          minWidth: "288px",
+          minWidth: "200px",
         }}
       >
         <ToggleButtonGroup
@@ -97,16 +98,12 @@ const CustomToggleButton = (props) => {
             display: "flex",
             justifyContent: "center",
             border: "2px solid #F9D29F",
-            borderRadius: "100px",
+            borderRadius: "24px",
             filter: "drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))",
-            minWidth: "288px",
+            minWidth: "200px",
           }}
         >
           {Object.keys(props.options).map((iterOption, idx) => {
-            const fontColor =
-              iterOption !== option
-                ? `${fontColorOption.selectedOption}`
-                : `${fontColorOption.nonSelectedOption}`;
             return (
               <ToggleButton
                 key={idx}
@@ -117,10 +114,17 @@ const CustomToggleButton = (props) => {
                   justifyContent: "center",
                   alignItems: "center",
                   padding: "21px 157px",
-                  background: "#F8CAA3",
-                  borderRadius: "100px",
+                  color: "#FFFFFF",
+                  "&.MuiToggleButtonGroup-grouped": {
+                    borderRadius: "24px !important",
+                    border: "1px solid lightgrey !important",
+                  },
+                  "&.Mui-selected, &.Mui-selected:hover": {
+                    color: "#9F938B",
+                    backgroundColor: "#F8CAA3",
+                  },
                   maxWidth: "500px",
-                  minWidth: "288px",
+                  minWidth: "200px",
                 }}
               >
                 <Typography
@@ -129,7 +133,6 @@ const CustomToggleButton = (props) => {
                     fontSize: "24px",
                     fontStyle: "normal",
                     fontWeight: 700,
-                    color: fontColor,
                     textTransform: "none",
                   }}
                 >
