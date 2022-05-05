@@ -4,20 +4,30 @@ import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Typography from "@mui/material/Typography";
+import { ThemeContext } from "../Context/ThemeContext";
 
 const CustomToggleButton = (props) => {
   const matches = useMediaQuery("(min-width:900px)");
-  const [option, setOption] = React.useState("option1");
+  const [option, setOption] = React.useState("option2");
 
-  const [fontColorOption, _] = React.useState({
-    selectedOption: "#9F938B",
-    nonSelectedOption: "#FFFFFF",
-  });
   const handleOption = (_, newOption) => {
     if (newOption !== null) {
       setOption(newOption);
+      const newUserSolutions = [...props.userSolutions].map((solution, idx) => {
+        if (idx === props.idx) {
+          if (option === "option1") {
+            return "option2";
+          } else {
+            return "option1";
+          }
+        } else {
+          return solution;
+        }
+      });
+      props.setUserSolutions(newUserSolutions);
     }
   };
+
   return (
     <React.Fragment>
       <Box
@@ -37,16 +47,12 @@ const CustomToggleButton = (props) => {
           sx={{
             display: "flex",
             justifyContent: "center",
-            border: "2px solid #F9D29F",
+            border: `${props.widgetColor.border}`,
             borderRadius: "100px",
             filter: "drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))",
           }}
         >
           {Object.keys(props.options).map((iterOption, idx) => {
-            const fontColor =
-              iterOption !== option
-                ? `${fontColorOption.selectedOption}`
-                : `${fontColorOption.nonSelectedOption}`;
             return (
               <ToggleButton
                 key={idx}
@@ -57,8 +63,15 @@ const CustomToggleButton = (props) => {
                   justifyContent: "center",
                   alignItems: "center",
                   padding: "21px 157px",
-                  background: "#F8CAA3",
-                  borderRadius: "100px",
+                  color: "#FFFFFF",
+                  "&.MuiToggleButtonGroup-grouped": {
+                    borderRadius: "100px !important",
+                    border: "1px solid lightgrey !important",
+                  },
+                  "&.Mui-selected, &.Mui-selected:hover": {
+                    color: `${props.widgetColor.color}`,
+                    backgroundColor: `${props.widgetColor.background}`,
+                  },
                   minWidth: "500px",
                 }}
               >
@@ -68,7 +81,6 @@ const CustomToggleButton = (props) => {
                     fontSize: "24px",
                     fontStyle: "normal",
                     fontWeight: 700,
-                    color: fontColor,
                     textTransform: "none",
                   }}
                 >
@@ -85,7 +97,7 @@ const CustomToggleButton = (props) => {
           flexGrow: 1,
           display: { xs: "flex", md: "none" },
           justifyContent: "center",
-          minWidth: "288px",
+          minWidth: "200px",
         }}
       >
         <ToggleButtonGroup
@@ -96,17 +108,13 @@ const CustomToggleButton = (props) => {
           sx={{
             display: "flex",
             justifyContent: "center",
-            border: "2px solid #F9D29F",
-            borderRadius: "100px",
+            border: `${props.widgetColor.border}`,
+            borderRadius: "24px",
             filter: "drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))",
-            minWidth: "288px",
+            minWidth: "200px",
           }}
         >
           {Object.keys(props.options).map((iterOption, idx) => {
-            const fontColor =
-              iterOption !== option
-                ? `${fontColorOption.selectedOption}`
-                : `${fontColorOption.nonSelectedOption}`;
             return (
               <ToggleButton
                 key={idx}
@@ -117,10 +125,17 @@ const CustomToggleButton = (props) => {
                   justifyContent: "center",
                   alignItems: "center",
                   padding: "21px 157px",
-                  background: "#F8CAA3",
-                  borderRadius: "100px",
+                  color: "#FFFFFF",
+                  "&.MuiToggleButtonGroup-grouped": {
+                    borderRadius: "24px !important",
+                    border: "1px solid lightgrey !important",
+                  },
+                  "&.Mui-selected, &.Mui-selected:hover": {
+                    color: `${props.widgetColor.color}`,
+                    background: `${props.widgetColor.background}`,
+                  },
                   maxWidth: "500px",
-                  minWidth: "288px",
+                  minWidth: "200px",
                 }}
               >
                 <Typography
@@ -129,7 +144,6 @@ const CustomToggleButton = (props) => {
                     fontSize: "24px",
                     fontStyle: "normal",
                     fontWeight: 700,
-                    color: fontColor,
                     textTransform: "none",
                   }}
                 >
