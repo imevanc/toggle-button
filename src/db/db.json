@@ -13,7 +13,7 @@
     {
       "question": "Which are the best sports people & teams?",
       "answers": [{ "option1": "Serena Williams", "option2": "Naomi Osaka" }],
-      "solutions": ["option3", "option1"]
+      "solutions": ["option1"]
     }
   ]
 }

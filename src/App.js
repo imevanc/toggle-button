@@ -11,7 +11,7 @@ const App = () => {
     <ThemeContext.Provider value={{ ourTheme }}>
       <ThemeProvider theme={ourTheme}>
         <QAndAWidget
-          questionsAndAnswers={questionsAndAnswers.questionsAndAnswers[0]}
+          questionsAndAnswers={questionsAndAnswers.questionsAndAnswers[1]}
         />
       </ThemeProvider>
     </ThemeContext.Provider>

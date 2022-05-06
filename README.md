@@ -1,70 +1,84 @@
-# Getting Started with Create React App
+# SENECA-TECH-TASK-TOGGLE
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a JS news application created with Material-UI, React.js & axios. It's hosted on Netlify.
 
-## Available Scripts
+# Table of contents
+- [SENECA-TECH-TASK-TOGGLE](#seneca-tech-task-toggle)
+- [Table of contents](#table-of-contents)
+- [General-Information <a name="general-information"></a>](#general-information-)
+- [Tech Stack <a name="tech-stack"></a>](#tech-stack-)
+- [Setup <a name="setup"></a>](#setup-)
+  - [Dependencies <a name="dependencies"></a>](#dependencies-)
+  - [Installation <a name="Installation"></a>](#installation-)
+- [Screen-Recording-Demo <a name="screen-recording-demo"></a>](#screen-recording-demo-)
 
-In the project directory, you can run:
+# General-Information <a name="general-information"></a>
 
-### `npm start`
+The SENECA-TECH-TASK-TOGGLE app is my individual work on the take home test of the Seneca Learning. The design of this application was provided by Seneca on a figma format and I translated that to a React application. It was developed with a mobile first approach, so I considered both mobile and web views. The user is given with a question and multiple choise answers in a form of toggle buttons. The widget follows a traffic light approach in order to help the user to figure out the solution. When the user launches the app all the toggle buttons are initialiased with incorrect responses, so the widget is on a red state. If the user manages to get 50% or more of the answers correct - but no 100% - the widget turns amber and with 100% of the responses being correct, the app turns green and it locks.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The questions, the possible answers and the correct solutions are held in a json file under ./src/db/db.json. The former ones are read in the App.js file in order to be passed into the child component. I coded up a progression component and conditionally render it into the App.js, because the above information will be get by a database in the future, so we need to show a user friendly message until the data will be fetched.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+All the toggle buttons are initialised with the incorrect states by flipping the information of the solutions array from the db.json. 
+I have made the assumption that the two states will be called "option1" and "option2". I could have followed a more reusable way for that by creating a config file, but I assumed that will be done in the future. 
 
-### `npm test`
+The state management way that I used is the useContext hook. I initialised the Material UI theme (ie traffic light system) and passed it to the custom widget. Furthermore, the useState hook was used extensively for storing data in different parts of this application.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Tech Stack <a name="tech-stack"></a>
 
-### `npm run build`
+```
+JavaScript
+React
+Material UI
+CSS
+HTML
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# Setup <a name="setup"></a>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Dependencies <a name="dependencies"></a>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<br> -> Please have a look at the list below in order to see the version of each dependency that the developer used. <-
 
-### `npm run eject`
+```
+- emotion/react: 11.8.1
+- emotion/styled: 11.8.1
+- mui/material: 5.6.3
+- testing-library/jest-dom: 5.16.4
+- testing-library/react: 13.1.1
+- testing-library/user-event: 13.5.0
+- react-dom: 18.1.0
+- react-router-dom: 6.3.0
+- react-scripts: 5.0.1
+- web-vitals: 2.1.4
+- react: 18.1.0
+- npm: 8.1.2
+```
+## Installation <a name="Installation"></a>
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+To run this project you will need to clone this repository onto your local machine.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+$ git clone https://github.com/imevanc/seneca-tech-task-toggle.git
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Navigate inside the folder and install all dependencies by entering the following commands on your terminal window:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```
+$ cd seneca-tech-task-toggle
+$ npm install
+```
 
-## Learn More
+To run the application locally enter:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
+$ npm start
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+The application will run on http://localhost:3000.
 
-### Code Splitting
+# Screen-Recording-Demo <a name="screen-recording-demo"></a>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<p align="center">
+  "https://user-images.githubusercontent.com/96417438/167109057-9b813eca-d0fd-4c8d-96e9-92ba3b20e44e.mov"
+</p>
