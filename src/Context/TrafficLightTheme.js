@@ -8,11 +8,11 @@ const TrafficLightTheme = () => {
       },
     },
     loading: {
-      main: "blue",
-      background: "blue",
-      border: "blue",
-      color: "blue",
-      nonSelectedColor: "blue",
+      main: "white",
+      background: "white",
+      border: "white",
+      color: "white",
+      nonSelectedColor: "white",
     },
     green: {
       main: "linear-gradient(180deg, #76E0C2 0%, #59CADA 100%)",
