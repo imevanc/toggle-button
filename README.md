@@ -11,6 +11,7 @@ This is a JS news application created with Material-UI, React.js & axios. It's h
   - [Dependencies <a name="dependencies"></a>](#dependencies-)
   - [Installation <a name="Installation"></a>](#installation-)
 - [Screen-Recording-Demo <a name="screen-recording-demo"></a>](#screen-recording-demo-)
+- [Future-Work <a name="future-work"></a>](#future-work-)
 
 # General-Information <a name="general-information"></a>
 
@@ -79,3 +80,12 @@ The application will run on http://localhost:3000.
 # Screen-Recording-Demo <a name="screen-recording-demo"></a>
 
 https://user-images.githubusercontent.com/96417438/167110112-84ce7e16-a495-4bcf-a1b8-c93ea31060ab.mov
+
+
+# Future-Work <a name="future-work"></a>
+
+- Type Checking: There is no type checking at the moment. My next step as a junior developer is to become acquainted with Typescript.
+- Configs File: A file where will consists of configurations of the widget (eg "option1", "option2" etc)
+- More than 2 responses to choose per solution (eg (A, B, C))
+- Create a custom API in order to replace the json file. That will be done in MongoDB, hosted in Atlas as a mongoose format.
+- Randomised data fetching from the backend
