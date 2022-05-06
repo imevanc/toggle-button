@@ -78,7 +78,4 @@ The application will run on http://localhost:3000.
 
 # Screen-Recording-Demo <a name="screen-recording-demo"></a>
 
-
-<p align="center">
-  "https://user-images.githubusercontent.com/96417438/167109057-9b813eca-d0fd-4c8d-96e9-92ba3b20e44e.mov"
-</p>
+https://user-images.githubusercontent.com/96417438/167110112-84ce7e16-a495-4bcf-a1b8-c93ea31060ab.mov
