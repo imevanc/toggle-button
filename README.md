@@ -1,6 +1,6 @@
 # SENECA-TECH-TASK-TOGGLE
 
-This is a JS news application created with Material-UI, React.js & axios. It's hosted on Netlify.
+This is a JS news application created with Material-UI & React.js.
 
 # Table of contents
 - [SENECA-TECH-TASK-TOGGLE](#seneca-tech-task-toggle)
