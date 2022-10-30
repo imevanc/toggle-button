@@ -1,9 +1,9 @@
-# SENECA-TECH-TASK-TOGGLE
+# Toggle-Button
 
 This is a JS news application created with Material-UI & React.js.
 
 # Table of contents
-- [SENECA-TECH-TASK-TOGGLE](#seneca-tech-task-toggle)
+- [Toggle-Button](#toggle-button)
 - [Table of contents](#table-of-contents)
 - [General-Information <a name="general-information"></a>](#general-information-)
 - [Tech Stack <a name="tech-stack"></a>](#tech-stack-)
@@ -15,7 +15,7 @@ This is a JS news application created with Material-UI & React.js.
 
 # General-Information <a name="general-information"></a>
 
-The SENECA-TECH-TASK-TOGGLE app is my individual work on the take home test of the Seneca Learning. The design of this application was provided by Seneca on a figma format and I translated that to a React application. It was developed with a mobile first approach, so I considered both mobile and web views. The user is given with a question and multiple choise answers in a form of toggle buttons. The widget follows a traffic light approach in order to help the user to figure out the solution. When the user launches the app all the toggle buttons are initialiased with incorrect responses, so the widget is on a red state. If the user manages to get 50% or more of the answers correct - but no 100% - the widget turns amber and with 100% of the responses being correct, the app turns green and it locks.
+It was developed with a mobile first approach, so I considered both mobile and web views. The user is given with a question and multiple choise answers in a form of toggle buttons. The widget follows a traffic light approach in order to help the user to figure out the solution. When the user launches the app all the toggle buttons are initialiased with incorrect responses, so the widget is on a red state. If the user manages to get 50% or more of the answers correct - but no 100% - the widget turns amber and with 100% of the responses being correct, the app turns green and it locks.
 
 The questions, the possible answers and the correct solutions are held in a json file under ./src/db/db.json. The former ones are read in the App.js file in order to be passed into the child component. I coded up a progression component and conditionally render it into the App.js, because the above information will be get by a database in the future, so we need to show a user friendly message until the data will be fetched.
 
@@ -59,13 +59,13 @@ HTML
 To run this project you will need to clone this repository onto your local machine.
 
 ```
-$ git clone https://github.com/imevanc/seneca-tech-task-toggle.git
+$ git clone https://github.com/imevanc/toggle-button.git
 ```
 
 Navigate inside the folder and install all dependencies by entering the following commands on your terminal window:
 
 ```
-$ cd seneca-tech-task-toggle
+$ cd toggle-button
 $ npm install
 ```
 
